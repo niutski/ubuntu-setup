@@ -1,0 +1,28 @@
+---
+
+- name: Set up local development machine
+  hosts: local
+  tasks:
+  - name: add Chrome repository keys from URLs
+    apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
+    become: yes
+
+  - name: install required repositories
+    apt_repository: repo="{{item}}" state=present
+    with_items:
+      - deb http://dl.google.com/linux/chrome/deb/ stable main
+      - ppa:webupd8team/atom
+    become: yes
+
+  - name: install packages
+    apt: name={{item}} state=present update_cache=true autoremove=true
+    with_items:
+      - atom
+      - google-chrome-stable
+    become: yes
+
+  -  name: install DEB packages
+     apt: deb={{item}}
+     with_items:
+       - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+     become: yes
