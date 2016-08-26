@@ -1,0 +1,10 @@
+- name: Fetch git prompt from github
+  git: name=https://github.com/magicmonty/bash-git-prompt.git depth=1 dest=~/.bash-git-prompt
+
+- name: Source from git-prompt
+  blockinfile:
+    dest: "~/.bashrc"
+    state: present
+    block: |
+      source ~/.bash-git-prompt/gitprompt.sh
+      GIT_PROMPT_ONLY_IN_REPO=1
