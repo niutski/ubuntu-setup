@@ -2,10 +2,15 @@
     apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub
     become: yes
 
+  - name: Install Spotify APT key
+    apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
+    become: yes
+
   - name: install required repositories
     apt_repository: repo="{{item}}" state=present
     with_items:
       - deb http://dl.google.com/linux/chrome/deb/ stable main
+      - deb http://repository.spotify.com stable non-free
       - ppa:webupd8team/atom
     become: yes
 
@@ -14,6 +19,7 @@
     with_items:
       - atom
       - google-chrome-stable
+      - spotify-client
     become: yes
 
   -  name: install DEB packages
