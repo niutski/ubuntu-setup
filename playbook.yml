@@ -5,3 +5,4 @@
   tasks:
     - include: tasks/install_packages.yml
     - include: tasks/gitprompt.yml
+    - include: tasks/node.yml
