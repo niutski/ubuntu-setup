@@ -6,12 +6,18 @@
     apt_key: keyserver=hkp://keyserver.ubuntu.com:80 id=BBEBDCB318AD50EC6865090613B00F1FD2C19886
     become: yes
 
+  - name: Install Redis dotdeb keyserver
+    apt_key: url=http://www.dotdeb.org/dotdeb.gpg
+    become: yes
+
   - name: install required repositories
     apt_repository: repo="{{item}}" state=present
     with_items:
       - deb http://dl.google.com/linux/chrome/deb/ stable main
       - deb http://repository.spotify.com stable non-free
       - ppa:webupd8team/atom
+      - deb http://packages.dotdeb.org squeeze all
+      - deb-src http://packages.dotdeb.org squeeze all
     become: yes
 
   - name: install packages
@@ -20,6 +26,7 @@
       - atom
       - google-chrome-stable
       - spotify-client
+      - redis-server
     become: yes
 
   -  name: install DEB packages
