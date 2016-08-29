@@ -1,9 +1,9 @@
 - name: Download terraform
-  get_url: url=https://releases.hashicorp.com/terraform/0.7.2/terraform_0.7.2_linux_amd64.zip dest=/tmp/terraform_0.7.2.zip
+  get_url: url=https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip dest=/tmp/terraform_0.6.16.zip
   tags: terraform
 
 - name: Unarchive terraform
-  unarchive: src=/tmp/terraform_0.7.2.zip dest=/usr/local/share creates=/usr/local/share/terraform
+  unarchive: src=/tmp/terraform_0.6.16.zip dest=/usr/local/share creates=/usr/local/share/terraform
   become: yes
   tags: terraform
 
