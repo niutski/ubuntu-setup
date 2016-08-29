@@ -6,3 +6,4 @@
     - include: tasks/install_packages.yml
     - include: tasks/gitprompt.yml
     - include: tasks/node.yml
+    - include: tasks/intellij.yml

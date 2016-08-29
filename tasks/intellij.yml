@@ -1,0 +1,13 @@
+- name: Download Intellij 2016
+  get_url: url=https://download.jetbrains.com/idea/ideaIU-2016.2.2.tar.gz dest=/tmp/intellij2016.tar.gz
+  tags: idea
+
+- name: Unarchive intellij
+  unarchive: src=/tmp/intellij2016.tar.gz dest=/usr/local/share creates=/usr/local/share/idea-IU-162.1628.40/bin/idea.sh
+  become: yes
+  tags: idea
+
+- name: Create symlink for intellij binary
+  file: src=/usr/local/share/idea-IU-162.1628.40/bin/idea.sh dest=/usr/local/bin/idea mode=0777 state=link
+  become: yes
+  tags: idea
