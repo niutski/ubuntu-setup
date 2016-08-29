@@ -7,3 +7,4 @@
     - include: tasks/gitprompt.yml
     - include: tasks/node.yml
     - include: tasks/intellij.yml
+    - include: tasks/terraform.yml
