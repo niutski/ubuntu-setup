@@ -30,6 +30,7 @@
       - postgresql
       - postgresql-contrib
       - pgadmin3
+      - tig
     become: yes
 
   -  name: install DEB packages
