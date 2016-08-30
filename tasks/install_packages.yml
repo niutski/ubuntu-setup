@@ -27,6 +27,9 @@
       - google-chrome-stable
       - spotify-client
       - redis-server
+      - postgresql
+      - postgresql-contrib
+      - pgadmin3
     become: yes
 
   -  name: install DEB packages
