@@ -32,6 +32,7 @@
       - pgadmin3
       - tig
       - ruby
+      - ruby-bundler
     become: yes
 
   - name: install DEB packages
@@ -39,6 +40,3 @@
     with_items:
      - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     become: yes
-
-  - name: Install ruby gems
-    gem: name=bundler state=present
