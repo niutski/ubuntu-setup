@@ -31,10 +31,14 @@
       - postgresql-contrib
       - pgadmin3
       - tig
+      - ruby
     become: yes
 
-  -  name: install DEB packages
-     apt: deb={{item}}
-     with_items:
-       - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-     become: yes
+  - name: install DEB packages
+    apt: deb={{item}}
+    with_items:
+     - https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    become: yes
+
+  - name: Install ruby gems
+    gem: name=bundler state=present
